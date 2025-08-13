@@ -1,0 +1,64 @@
+DATE functions
+---------------
+
+1.to_date  -- "21-2024-03"  
+2.to_timestamp -- 2024-03-30 :6:50:30:333 
+3.date_format  -- convert one date format to another date format  -(
+
+2024-03-30 :6:50:30:333
+
+
+
+Date Functions
+---------------
+
+
+date_format  -- convert one date format to another date format
+---------------------------------------------------------
+
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import *
+from pyspark.sql.types import * 
+
+
+data= [["2024-07-30"],["2025-03-29"]]
+column=["date"]
+df=spark.createDataFrame(data,column)
+
+df1=df.withColumn("new_date_format",date_format(df["date"],"dd-MM-yyyy"))
+df1.display()
+df.display()
+df1.printSchema()
+
+
+to_date
+--------
+
+data= [["04-1995-30"],["04-1995-30"]]
+column=["date"]
+df=spark.createDataFrame(data,column)
+df.printSchema()
+
+df2=df.withColumn("new_date",to_date("date","MM-yyyy-dd"))
+df2.display()
+df2.printSchema()
+
+
+to_timestamp
+-------------
+
+
+
+data=[["30-10-2025 07 30 12 09"]]
+column =["entry_time"]
+df=spark.createDataFrame(data,column)
+df2.display()
+df2.printSchema()
+
+
+df3=df.withColumn("new_entry_time",to_timestamp("entry_time","dd-MM-yyyy HH mm ss SSS"))
+df3.show(truncate=False)
+df3.printSchema()
+
+ 
+
