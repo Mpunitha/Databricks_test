@@ -1,0 +1,9 @@
+{
+	"name": "punithadatafactory",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "3224ef29-db26-4246-87a1-873906c830d2",
+		"tenantId": "39ff7490-df42-476d-b569-58f7e97077d4"
+	}
+}
